@@ -10,6 +10,7 @@ type DisplayController struct {
 	beego.Controller
 }
 
+// Post 距离展示控制层, 接收post请求, 参数为lora模块地址, 返回最近 length 获取到的距离以及对应时间
 func (c *DisplayController) Post() {
 	addr, err := c.GetInt("addr")
 	if err != nil {
