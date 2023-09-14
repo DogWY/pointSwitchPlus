@@ -1,0 +1,21 @@
+.fw_conent .my_addr {
+  text-align: center;
+}
+.fw_conent .my_form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.fw_conent .my_form form {
+  display: flex;
+  flex-direction: column;
+}
+.fw_conent .my_form form .my_button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.fw_conent .my_form form .my_button input {
+  margin: 5% 10% 10% 5%;
+}
+/*# sourceMappingURL=mysystemconf.css.map */

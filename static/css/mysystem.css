@@ -1,0 +1,27 @@
+.fw_conent .bzzx_nr {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
+.fw_conent .bzzx_nr #table_one {
+  display: flex;
+  flex-wrap: wrap;
+}
+.fw_conent .bzzx_nr button {
+  margin-top: 20px;
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: #fff;
+  font-size: 18px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.fw_conent .bzzx_nr button:hover {
+  background-color: #3e8e41;
+}
+/*# sourceMappingURL=mysystem.css.map */

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>转辙机缺口监测系统</title>
+    <link rel="stylesheet" type="text/css" href="static/css/base.css"/>
+    <link rel="stylesheet" type="text/css" href="static/css/system.css"/>
+    <link rel="stylesheet" type="text/css" href="static/css/mysystem.css"/>
+</head>
+
+<body>
+
+<div class="w_1200 fw_box">
+    <div class="left_nav">
+        <ul class="bzzx_nav_list">
+            <li class="on"><a href="/system" class="icon_7">系统初始化</a></li>
+            <li><a href="/img" class="icon_5">图像采集</a></li>
+            <li><a href="/system_conf" class="icon_2"> Lora地址配置</a></li>
+            <li><a href="/dis" class="icon_3">缺口距离展示</a></li>
+            <li><a href="#" class="icon_4"> 模块</a></li>
+            <li><a href="#" class="icon_5"> 模块</a></li>
+            <li><a href="#" class="icon_6"> 模块</a></li>
+            <li><a href="#" class="icon_7"> 模块</a></li>
+        </ul>
+    </div>
+    <div class="fw_conent">
+        <!--内容开始------------------------------>
+        <div class="bzzx_bt">
+            <strong>系统初始化</strong>
+        </div>
+        <div class="bzzx_nr" >
+            <div id="table_one">
+            </div>
+
+            <button onclick="heartDet()" type="button">系统初始化</button>
+        </div>
+
+    </div>
+</div>
+
+<script src="/static/js/jquery-3.5.1.js"></script>
+
+<script>
+    let imgPath = "<img src='static/img/rasberry.jpg' style='width: 80%;height: 80%'>"
+    let addrs = {{.addrs}}
+    let states = {{.states}}
+    let intervalId
+
+    $(document).ready(function () {
+        for (let i = 0; i < addrs.length; i++) {
+            let str = "<span style='font-size: 20px;'>&nbsp;&nbsp;" + addrs[i] + "</span>"
+            let tmp
+            if (states[addrs[i]] == 1) {
+                tmp = "<span id=" + addrs[i] + " style='color: green;font-size: 20px;'>&nbsp;&nbsp;√</span>"
+            }else if (states[addrs[i]] == 0) {
+                tmp = "<span id=" + addrs[i] + " style='color: black;font-size: 20px;'>&nbsp;&nbsp;○</span>"
+            }else{
+                tmp = "<span id=" + addrs[i] + " style='color: red;font-size: 20px;'>&nbsp;&nbsp;×</span>"
+            }
+
+            $("#table_one").append("<div style='width: 20%;height: 20%'>"+imgPath+"<p>" + str + tmp + "</p>"+"</div>")
+        }
+    })
+
+    function heartDet(){
+        let idx = 0
+        intervalId = setInterval(function () {
+            $.ajax({
+                url: "init_system",
+                type: "post",
+                async: true,
+                data: {
+                    index: idx,
+                    addr: addrs[idx],
+                },
+                success: function (data) {
+                    if (data["state"] == 1) {
+                        console.log(addrs[idx])
+                        $("#"+addrs[idx]).css('color', 'green');
+                        $("#"+addrs[idx]).html('&nbsp;&nbsp;√');
+                    }else{
+                        $("#"+addrs[idx]).css('color', 'red');
+                        $("#"+addrs[idx]).html('&nbsp;&nbsp;×');
+                    }
+                    idx = idx + 1
+                }
+            })
+
+            if(idx == addrs.length) {
+                clearInterval(intervalId)
+            }
+        }, 5000)
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,17 @@
+addrs:
+    - 90
+    - 121
+    - 123
+img:
+    left: static/img/left.png
+    monitor: static/img/monitor.png
+    right: static/img/right.png
+mysql:
+    dns: root:123456@tcp(8.130.50.95:3306)/project?charset=utf8mb4&parseTime=True&loc=Local
+port:
+    addr: 65535
+    baud: 9600
+    name: COM18
+    readtimeout: 3
+zap:
+    director: ./log

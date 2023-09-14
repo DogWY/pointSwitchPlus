@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>转辙机缺口监测系统</title>
+        <link href="static/css/base.css" rel="stylesheet" type="text/css"/>
+        <link href="static/css/system.css" rel="stylesheet" type="text/css"/>
+        <link href="static/css/mydis.css" rel="stylesheet" type="text/css"/>
+        <script src="/static/js/echarts.js"></script>
+        <script src="/static/js/jquery-3.5.1.js"></script>
+    </head>
+    <body>
+        <div class="w_1200 fw_box">
+            <div class="left_nav">
+                <ul class="bzzx_nav_list">
+                    <li><a class="icon_7" href="/system">系统初始化</a></li>
+                    <li><a class="icon_5" href="/img">图像采集</a></li>
+                    <li><a class="icon_2" href="/system_conf"> Lora地址配置</a></li>
+                    <li class="on"><a class="icon_3" href="/dis">缺口距离展示</a></li>
+                    <li><a class="icon_4" href="#"> 模块</a></li>
+                    <li><a class="icon_5" href="#"> 模块</a></li>
+                    <li><a class="icon_6" href="#"> 模块</a></li>
+                    <li><a class="icon_7" href="#"> 模块</a></li>
+                </ul>
+            </div>
+            <div class="fw_conent">
+                <div class="bzzx_bt">
+                    <strong>缺口距离展示</strong>
+                </div>
+                <div class="bzzx_nr">
+                    <div id="main"></div>
+                    <div class="my_form">
+                        <form id="addr-box">
+                            <select id="select_one" name="addr">
+                                <option hidden selected>模块地址</option>
+                            </select>
+                            <button onclick="FlushDis()" type="button">获取距离</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class='dis_box'>
+
+
+    </body>
+    <script type="text/javascript">
+        let intervalID;
+        let addrs = {{.addrs}}
+        function displayDis(addr) {
+            let chartDom = document.getElementById(addr);
+            let myChart = echarts.init(chartDom);
+            $.ajax({
+                url: "/display",
+                method: "post",
+                async: true,
+                data: {
+                    addr: addr,
+                },
+                success: function (data) {
+                    let option = {
+                        xAxis: {
+                            type: 'category',
+                            data: data["times"]
+                        },
+                        yAxis: {
+                            type: 'value'
+                        },
+                        series: [
+                            {
+                                data: data["dis"],
+                                type: 'line',
+                                smooth: true
+                            }
+                        ]
+                    };
+                    option && myChart.setOption(option);
+                }
+            })
+        }
+        function getDis(addr) {
+            let chartDom = document.getElementById(addr);
+            let myChart = echarts.init(chartDom);
+            $.ajax({
+                url: "/dis",
+                method: "post",
+                async: true,
+                data: {
+                    addr: addr,
+                },
+                success: function (data) {
+                    let option = {
+                        xAxis: {
+                            type: 'category',
+                            data: data["times"]
+                        },
+                        yAxis: {
+                            type: 'value'
+                        },
+                        series: [
+                            {
+                                data: data["dis"],
+                                type: 'line',
+                                smooth: true
+                            }
+                        ]
+                    };
+                    option && myChart.setOption(option);
+                }
+            })
+        }
+
+        $(document).ready(function () {
+            for (let i = 0; i < addrs.length; i++) {
+                $("#select_one").append("<option value='" + addrs[i] + "'>" + addrs[i] + "</option>")
+                let tmp = "<div class='dis_box'>" +
+                    "<div class='dis_chart' id=" +addrs[i]+ "></div>" +
+                    "<div>" + addrs[i] + "</div>" +
+                    "</div>"
+                $("#main").append(tmp)
+                displayDis(addrs[i])
+            }
+            let idx = 0
+            intervalID = setInterval(function () {
+                let addr = addrs[idx]
+                getDis(addr)
+                idx = (idx+1) % addrs.length
+            }, 5000)
+
+        })
+
+        function FlushDis() {
+            clearInterval(intervalID)
+            setInterval(function () {
+                let addr = 123
+                console.log(addr)
+                getDis(addr)
+            }, 5000)
+        }
+    </script>
+
+</html>

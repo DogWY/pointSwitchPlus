@@ -1,0 +1,131 @@
+.fw_conent .bzzx_nr {
+  font-size: 12px;
+  height: 800px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
+.fw_conent .bzzx_nr .init_img {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  text-align: center;
+  height: 90%;
+  width: 100%;
+}
+.fw_conent .bzzx_nr .init_img .reference_image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 48%;
+  width: 100%;
+}
+.fw_conent .bzzx_nr .init_img .reference_image .left_img,
+.fw_conent .bzzx_nr .init_img .reference_image .right_img {
+  display: inline-block;
+  width: 40%;
+  height: 100%;
+  margin: 5%;
+}
+.fw_conent .bzzx_nr .init_img .reference_image .left_img img,
+.fw_conent .bzzx_nr .init_img .reference_image .right_img img {
+  max-width: 100%;
+  max-height: 100%;
+}
+.fw_conent .bzzx_nr .init_img .gather_img {
+  width: 100%;
+  height: 48%;
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+.fw_conent .bzzx_nr .init_img .gather_img img {
+  max-width: 100%;
+  max-height: 100%;
+}
+.fw_conent .bzzx_nr .my_form {
+  height: 10%;
+  text-align: center;
+  width: 40%;
+}
+.fw_conent .bzzx_nr .my_form #img-box .myselect {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+.fw_conent .bzzx_nr .my_form #img-box #select_one {
+  background: linear-gradient(to bottom, #f7f7f7, #fff);
+  border: 1px solid #d1d1d1;
+  border-radius: 5px;
+  color: #555;
+  font-size: 12px;
+  height: 38px;
+  width: 30%;
+  margin-right: 10%;
+  margin-left: 10%;
+}
+.fw_conent .bzzx_nr .my_form #img-box #select_one:focus {
+  border-color: #8bc0ff;
+  outline: none;
+  box-shadow: 0 0 0 0.2rem rgba(139, 192, 255, 0.25);
+}
+.fw_conent .bzzx_nr .my_form #img-box #select_two {
+  background: linear-gradient(to bottom, #f7f7f7, #fff);
+  border: 1px solid #d1d1d1;
+  border-radius: 5px;
+  color: #555;
+  font-size: 12px;
+  height: 38px;
+  width: 30%;
+  margin-right: 10%;
+  margin-left: 10%;
+}
+.fw_conent .bzzx_nr .my_form #img-box #select_two:focus {
+  border-color: #8bc0ff;
+  outline: none;
+  box-shadow: 0 0 0 0.2rem rgba(139, 192, 255, 0.25);
+}
+.fw_conent .bzzx_nr .my_form #img-box button {
+  margin-top: 5px;
+  display: inline-block;
+  padding: 5px 10px;
+  background-color: #4CAF50;
+  color: #fff;
+  font-size: 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.fw_conent .bzzx_nr .my_form #img-box button:hover {
+  background-color: #3e8e41;
+}
+/*.reference_image {*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*    height: 50%;*/
+/*}*/
+/*.left_img, .right_img {*/
+/*    display: inline-block;*/
+/*    width: 40%;*/
+/*    margin: 5%;*/
+/*    height: 100%;*/
+/*}*/
+/*.left_img img, .right_img, .gather_img img {*/
+/*    max-width: 100%;*/
+/*    max-height: 100%;*/
+/*}*/
+/*.form_bt {*/
+/*    margin: 200px;*/
+/*}*/
+/*input.btn {*/
+/*    margin-left: 5%;*/
+/*    margin-right: 5%;*/
+/*    border: 2px solid;*/
+/*    border-radius: 5px;*/
+/*}*/
+/*# sourceMappingURL=test.css.map */
