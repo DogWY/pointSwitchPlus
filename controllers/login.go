@@ -20,7 +20,7 @@ func (c *LoginController) Post() {
 	var user models.User
 	err := global.DB.Model(models.User{}).Where("Name = ?", username).First(&user).Error
 	if err != nil {
-		global.Logger.Info("login fail： wrong username",
+		global.Logger.Infow("login fail： wrong username",
 			"username", username,
 		)
 		c.Data["msg"] = "用户名不存在"
@@ -35,7 +35,7 @@ func (c *LoginController) Post() {
 		c.TplName = "login.html"
 		return
 	}
-	global.Logger.Info("login success",
+	global.Logger.Infow("login success",
 		"username", username,
 	)
 	c.Data["msg"] = "登陆成功"

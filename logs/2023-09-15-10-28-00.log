@@ -1,0 +1,4 @@
+{"L":"INFO","T":"2023-09-15 10:28:00","M":"read config success"}
+{"L":"INFO","T":"2023-09-15 10:28:00","M":"read config success"}
+{"L":"ERROR","T":"2023-09-15 10:28:03","M":"open mysql fail"}
+{"L":"ERROR","T":"2023-09-15 10:28:03","M":"open port fail"}
