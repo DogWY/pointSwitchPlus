@@ -2,8 +2,8 @@ package main
 
 import (
 	beego "github.com/beego/beego/v2/server/web"
-	"project/global"
-	_ "project/routers"
+	"pointSwitch/global"
+	_ "pointSwitch/routers"
 )
 
 func main() {

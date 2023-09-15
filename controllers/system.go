@@ -4,7 +4,7 @@ import (
 	"bytes"
 	"fmt"
 	beego "github.com/beego/beego/v2/server/web"
-	"project/global"
+	"pointSwitch/global"
 	"time"
 )
 

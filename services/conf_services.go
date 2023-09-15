@@ -2,7 +2,7 @@ package services
 
 import (
 	"github.com/spf13/viper"
-	"project/global"
+	"pointSwitch/global"
 	"sort"
 	"strconv"
 )

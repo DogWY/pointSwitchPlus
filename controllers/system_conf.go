@@ -2,8 +2,8 @@ package controllers
 
 import (
 	beego "github.com/beego/beego/v2/server/web"
-	"project/global"
-	"project/services"
+	"pointSwitch/global"
+	"pointSwitch/services"
 	"strings"
 )
 

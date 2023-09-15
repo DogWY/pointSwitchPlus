@@ -1,4 +1,4 @@
-module project
+module pointSwitch
 
 go 1.20
 

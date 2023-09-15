@@ -8,7 +8,7 @@ import (
 	"gorm.io/gorm"
 	"log"
 	"os"
-	"project/lora"
+	"pointSwitch/lora"
 	"time"
 )
 

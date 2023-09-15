@@ -3,8 +3,8 @@ package test
 import (
 	"fmt"
 	"github.com/spf13/viper"
-	"project/global"
-	_ "project/utils"
+	"pointSwitch/global"
+	_ "pointSwitch/utils"
 	"testing"
 )
 

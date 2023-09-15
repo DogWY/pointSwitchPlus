@@ -6,13 +6,13 @@ import (
 	"net/http"
 	"net/http/httptest"
 	"path/filepath"
-	"project/global"
+	"pointSwitch/global"
 	"runtime"
 	"testing"
 
 	"github.com/beego/beego/v2/core/logs"
 
-	_ "project/routers"
+	_ "pointSwitch/routers"
 
 	beego "github.com/beego/beego/v2/server/web"
 	. "github.com/smartystreets/goconvey/convey"
