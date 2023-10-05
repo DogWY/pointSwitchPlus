@@ -1,6 +1,7 @@
 package global
 
 import (
+	"fmt"
 	"github.com/spf13/viper"
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
@@ -9,6 +10,7 @@ import (
 	"log"
 	"os"
 	"pointSwitch/lora"
+	"pointSwitch/utils"
 	"time"
 )
 
@@ -46,7 +48,13 @@ func init() {
 // InitLog 日志文件初始化, 每次启动系统车用心初始化一次日志文件
 func InitLog() {
 	logName := time.Now().Format("2006-01-02-15-04-05")
-	file, err := os.Create("./logs/" + logName + ".log")
+	currentDir, err := os.Getwd()
+	if err != nil {
+		fmt.Println("无法获取当前工作目录：", err)
+		return
+	}
+	root, err := utils.FindProjectRoot(currentDir)
+	file, err := os.Create(root + "/logs/" + logName + ".log")
 	if err != nil {
 		log.Fatalf("create log fail")
 	}
