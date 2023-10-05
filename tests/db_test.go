@@ -19,7 +19,7 @@ func TestDB(t *testing.T) {
 	if err != nil {
 		fmt.Println("connect fail")
 	}
-	db.AutoMigrate(User{})
+	db.AutoMigrate(&User{})
 	user := User{
 		Name: "tqh",
 		Pwd:  "123456",
