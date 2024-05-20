@@ -21,4 +21,6 @@ func init() {
 
 	beego.Router("/dis", &controllers.DisController{})
 	beego.Router("/display", &controllers.DisplayController{})
+
+	beego.Router("/get_global", &controllers.GetGlobalController{})
 }
