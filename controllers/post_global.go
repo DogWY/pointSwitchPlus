@@ -19,7 +19,7 @@ func (c *PostGlobalController) Post() {
 	//addrStr := c.GetString("addr")
 	addrStr := c.Ctx.Request.PostFormValue("addr")
 	fmt.Println("addr 参数值（字符串）:", addrStr)
-
+	fmt.Println("addr的值是啥:", "addr")
 	addr, err := c.GetInt("addr")
 	if err != nil {
 		fmt.Println("获取地址失败")
@@ -34,7 +34,7 @@ func (c *PostGlobalController) Post() {
 	//	m["state"] = -1
 	//	global.States[addr] = -1
 	//}
-
+	fmt.Println("errd的值:", err)
 	global.States[addr] = -1
 	m["state"] = -1
 	c.Data["json"] = m
