@@ -2,22 +2,27 @@ package controllers
 
 import (
 	"fmt"
-	beego "github.com/beego/beego/v2/server/web"
 	"pointSwitch/global"
 	"strconv"
 	"time"
+
+	beego "github.com/beego/beego/v2/server/web"
+	// "strconv"
+	// "time"
 )
 
 type DisController struct {
 	beego.Controller
 }
 
-func (c *DisController) Get() {
-	c.Data["addrs"] = global.Addrs
-	c.TplName = "dis.html"
-}
+// func (c *DisController) Get() {
+// 	c.Data["addrs"] = global.Addrs
+// 	c.TplName = "dis.html"
+// }
 
 func (c *DisController) Post() {
+	c.Ctx.Output.ContentType("application/json")
+	m := make(map[string]any)
 	addr, err := c.GetInt("addr")
 	if err != nil {
 		fmt.Println("获取地址失败")
