@@ -1,5 +1,7 @@
 addrs:
     - 90
+    - 109
+    - 111
     - 121
     - 123
 img:
@@ -7,11 +9,11 @@ img:
     monitor: static/img/monitor.png
     right: static/img/right.png
 mysql:
-    dns: root:123456@tcp(localhost:3306)/project?charset=utf8mb4&parseTime=True&loc=Local
+    dns: root:1234@tcp(localhost:3306)/project?charset=utf8mb4&parseTime=True&loc=Local
 port:
     addr: 65535
     baud: 9600
-    name: COM18
+    name: COM3
     readtimeout: 3
 zap:
     director: ./log
