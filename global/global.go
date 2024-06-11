@@ -20,7 +20,7 @@ var (
 	DB     *gorm.DB
 	Addrs  []int
 	States map[int]int
-	MDis   map[int][]int
+	MDis   map[int][]float64
 	MTimes map[int][]string
 )
 
@@ -36,11 +36,11 @@ func init() {
 	InitPort()
 	Addrs = viper.GetIntSlice("addrs")
 	States = make(map[int]int)
-	MDis = make(map[int][]int)
+	MDis = make(map[int][]float64)
 	MTimes = make(map[int][]string)
 	for _, addr := range Addrs {
 		States[addr] = 0
-		MDis[addr] = make([]int, Length)
+		MDis[addr] = make([]float64, Length)
 		MTimes[addr] = make([]string, Length)
 	}
 }
